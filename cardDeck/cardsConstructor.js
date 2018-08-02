@@ -1,4 +1,4 @@
-export default class Deck {
+ class Deck {
     constructor(){
         this.deck=[]
         this.deltCards=[]
@@ -60,13 +60,23 @@ export default class Deck {
         this.deck = []
     }
 
+    cut () {
+        let randomIndex = Math.floor(Math.random() * this.deck.length), cutDeck=[], cutCard;
+
+        for(let i=0; i<randomIndex; i++){
+            cutCard = this.deck.shift();
+            cutDeck.push(cutCard);
+        }
+        this.deck = this.deck.concat(cutDeck);
 
     }
 
+}
+
     deck = new Deck();
     deck.generateDeck();
-    deck.shuffle();
+    deck.cut();
     deck.printDeck();
-    console.log('DELT', deck.deal())
-    deck.printDeck();
+    // console.log('DELT', deck.deal())
+    // deck.printDeck();
 
